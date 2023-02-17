@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Container Logs</title>
+    <style>
+        body {
+            font-family:Courier;
+            color: #CCCCCC;
+            background: #000000;
+            border: 3px double #CCCCCC;
+            padding: 10px;
+        }
+        pre {
+            overflow: auto;
+            display: flex;
+            flex-direction: column-reverse;
+            padding-bottom: 20px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2 for="container_name">
+            Container: 
+            <select name="container_name" id="container_name">
+                <option disabled selected value> -- select an option -- </option>
+                {% for container_name in container_names %}
+                    <option value="{{ container_name }}">{{ container_name }}</option>
+                {% endfor %}
+            </select>
+        </h2>
+    </form>
+    <br>
+    <pre id="logs"></pre>
+    <script>
+        function refreshLogs() {
+            const containerName = document.getElementById('container_name').value;
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '/logs?container_name=' + containerName);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    document.getElementById('logs').textContent = xhr.response;
+                }
+            };
+            xhr.send();
+        }
+        setInterval(refreshLogs, 1000);
+
+    </script>
+</body>
+</html>
