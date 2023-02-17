@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Docker Container Logs</title>
     <style>
         body {
-            font-family:Courier;
+            font-family: Consolas;
             color: #CCCCCC;
             background: #000000;
             border: 3px double #CCCCCC;
             padding: 10px;
+            font-size: 150%;
         }
+
+        select {
+            background: #000000;
+            font-family: Consolas;
+            color: #CCCCCC;
+            border: 3px double #CCCCCC;
+            font-size: 100%;
+        }
+
         pre {
             overflow: auto;
             display: flex;
             flex-direction: column-reverse;
-            padding-bottom: 20px;
+            padding-bottom: 5px;
             height: 600px;
         }
     </style>
 </head>
+
 <body>
     <form>
         <h2 for="container_name">
-            Container: 
+            Container:
             <select name="container_name" id="container_name">
                 <option disabled selected value> -- select an option -- </option>
                 {% for container_name in container_names %}
-                    <option value="{{ container_name }}">{{ container_name }}</option>
+                <option value="{{ container_name }}">{{ container_name }}</option>
                 {% endfor %}
             </select>
         </h2>
@@ -38,7 +50,7 @@
             const containerName = document.getElementById('container_name').value;
             const xhr = new XMLHttpRequest();
             xhr.open('GET', '/logs?container_name=' + containerName);
-            xhr.onload = function() {
+            xhr.onload = function () {
                 if (xhr.status === 200) {
                     document.getElementById('logs').textContent = xhr.response;
                 }
@@ -49,4 +61,5 @@
 
     </script>
 </body>
+
 </html>
