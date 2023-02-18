@@ -49,3 +49,14 @@ Docker Log Watcher requires the following:
 ## License
 
 Docker Log Watcher is released under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+### Support
+
+If you find this project useful, consider buying me a coffee! Donations help keep this project going and are greatly appreciated.
+
+[![Buy me a coffee](https://img.shields.io/badge/-Buy%20me%20a%20coffee-orange?logo=buy-me-a-coffee&logoColor=white&style=for-the-badge)](https://www.buymeacoffee.com/pedro_cf)
+
+
+
+
+
