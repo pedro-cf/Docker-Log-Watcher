@@ -8,29 +8,27 @@ To use Docker Log Watcher, you need to build and run the Docker image provided i
 
 1. Clone this repository to your local machine:
 
-'''bash
-
-   git clone https://github.com/pedro-cf/docker_log_watcher.git
-
-'''
+```
+git clone https://github.com/pedro-cf/docker_log_watcher.git
+```
 
 2. Change to the cloned directory:
 
-   '''bash
-   cd docker_log_watcher
-   '''
+```
+cd docker_log_watcher
+```
 
 3. Build the Docker image:
 
-   '''
-   docker build -t docker_log_watcher .
-   '''
+```
+docker build -t docker_log_watcher .
+```
 
 4. Run the Docker container:
 
-   '''
-   docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock docker_log_watcher
-   '''
+```
+docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock docker_log_watcher
+```
 
    This command starts a Docker container that listens on port 5000 and mounts the Docker socket to access the logs of other containers on the host machine.
 
