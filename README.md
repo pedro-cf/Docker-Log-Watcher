@@ -8,13 +8,13 @@ To use Docker Log Watcher, you need to build and run the Docker image provided i
 
 1. Clone this repository to your local machine:
 
-   '''
+   '''bash
    git clone https://github.com/pedro-cf/docker_log_watcher.git
    '''
 
 2. Change to the cloned directory:
 
-   '''
+   '''bash
    cd docker_log_watcher
    '''
 
