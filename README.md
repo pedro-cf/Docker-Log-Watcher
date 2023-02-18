@@ -42,9 +42,7 @@ docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock docker_l
 
 Docker Log Watcher requires the following:
 
-* Docker (the application uses the Docker API to fetch the container logs)
-* Python 3
-* Flask
+* Docker
 
 ## License
 
