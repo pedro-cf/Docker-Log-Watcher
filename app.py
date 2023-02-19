@@ -1,12 +1,21 @@
 import docker
 from flask import Flask, render_template, request, jsonify
-import sys
+from flask_basicauth import BasicAuth
+import os, sys
 
 app = Flask(__name__)
+app.config["BASIC_AUTH_USERNAME"] = os.environ.get("BASIC_AUTH_USERNAME")
+if app.config["BASIC_AUTH_USERNAME"] is None:
+    raise Exception("BASIC_AUTH_USERNAME not defined")
+app.config["BASIC_AUTH_PASSWORD"] = os.environ.get("BASIC_AUTH_PASSWORD")
+if app.config["BASIC_AUTH_PASSWORD"] is None:
+    raise Exception("BASIC_AUTH_PASSWORD not defined")
+basic_auth = BasicAuth(app)
 client = docker.from_env()
 
 
 @app.route("/")
+@basic_auth.required
 def index():
     containers = client.containers.list()
     container_names = [container.name for container in containers]
@@ -16,6 +25,7 @@ def index():
 
 
 @app.route("/logs")
+@basic_auth.required
 def logs():
     try:
         container_name = request.args.get("container_name")

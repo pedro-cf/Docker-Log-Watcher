@@ -1,5 +1,9 @@
-FROM python:3.9-slim-buster
-RUN pip install flask docker
-COPY . /
+FROM python:3.9-slim-buster AS base
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
+
+FROM base
+COPY . /app
 EXPOSE 5000
-ENTRYPOINT [ "python", "/app.py" ]
+WORKDIR app
+ENTRYPOINT [ "python", "app.py" ]

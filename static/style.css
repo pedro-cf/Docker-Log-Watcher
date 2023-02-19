@@ -31,3 +31,19 @@ h2 {
     margin-bottom: 0;
     margin-top: 0;
 }
+
+button.export-btn {
+    background: #000000;
+    font-family: Consolas;
+    color: #CCCCCC;
+    border: 3px double #CCCCCC;
+    font-size: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button.export-btn:active {
+    background-color: #ffffff27;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

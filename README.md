@@ -27,10 +27,11 @@ docker build -t docker_log_watcher .
 4. Run the Docker container:
 
 ```
-docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock docker_log_watcher [container_name1] [container_name2] ...
+docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock -e BASIC_AUTH_USERNAME=<username> -e BASIC_AUTH_PASSWORD=<password> docker_log_watcher [container_name1] [container_name2] ...
+
 ```
 
-This command starts a Docker container that listens on port 5000 and mounts the Docker socket to access the logs of other containers on the host machine. You can optionally pass container names as arguments to the Docker command to filter which containers to display.
+This command starts a Docker container that listens on port 5000 and mounts the Docker socket to access the logs of other containers on the host machine. It also sets the BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD environment variables to the desired username and password for basic authentication. You can optionally pass container names as arguments to the Docker command to filter which containers to display.
 
 5. Access the logs in your web browser:
 

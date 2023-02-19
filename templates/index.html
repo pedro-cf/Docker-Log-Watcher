@@ -21,6 +21,7 @@
             Filter:
             <input type="text" id="filter" name="filter">
         </h2>
+        <button class="export-btn" onclick="exportLogs()">Export Logs</button>
     </form>
     <pre id="logs"></pre>
     <script>
@@ -37,6 +38,19 @@
             xhr.send();
         }
         setInterval(refreshLogs, 1000);
+
+        function exportLogs() {
+            const containerName = document.getElementById('container_name').value;
+            if (!containerName) return;
+            const logs = document.getElementById('logs').textContent;
+            const filename = new Date().toISOString() + "_" + containerName + '.log';
+            const blob = new Blob([logs], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+        }
 
     </script>
 </body>

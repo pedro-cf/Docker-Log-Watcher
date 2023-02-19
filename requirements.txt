@@ -1,0 +1,3 @@
+docker==6.0.1
+Flask==2.2.3
+Flask_BasicAuth==0.2.0
