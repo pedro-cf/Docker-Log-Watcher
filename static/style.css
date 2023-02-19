@@ -1,0 +1,33 @@
+body {
+    font-family: Consolas;
+    color: #CCCCCC;
+    background: #000000;
+    font-size: 15px;
+    /* margin: 0; */
+}
+
+select,
+#filter {
+    background: #000000;
+    font-family: Consolas;
+    color: #CCCCCC;
+    border: 3px double #CCCCCC;
+    font-size: 15px;
+}
+
+pre {
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 5px;
+    height: calc(100vh - 90px);
+    border: 3px double #CCCCCC;
+    /* margin-: 0; */
+}
+
+h2 {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+}

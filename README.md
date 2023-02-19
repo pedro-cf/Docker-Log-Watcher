@@ -27,16 +27,18 @@ docker build -t docker_log_watcher .
 4. Run the Docker container:
 
 ```
-docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock docker_log_watcher
+docker run -d -p 5000:5000 -v /var/run/docker.sock:/var/run/docker.sock docker_log_watcher [container_name1] [container_name2] ...
 ```
 
-   This command starts a Docker container that listens on port 5000 and mounts the Docker socket to access the logs of other containers on the host machine.
+This command starts a Docker container that listens on port 5000 and mounts the Docker socket to access the logs of other containers on the host machine. You can optionally pass container names as arguments to the Docker command to filter which containers to display.
 
 5. Access the logs in your web browser:
 
-   Open a web browser and navigate to `http://localhost:5000/`. You will see a web page with a drop-down list of the containers running on your machine. Select a container to view its logs.
+Open a web browser and navigate to `http://localhost:5000/`. You will see a web page with a drop-down list of the containers running on your machine. Select a container to view its logs.
 
-   The logs are displayed in a scrolling text area, with the most recent logs at the top. The logs are refreshed every second to show the latest changes.
+The logs are displayed in a scrolling text area, with the most recent logs at the top. The logs are refreshed every second to show the latest changes.
+
+You can also filter the logs by text by entering a search term in the "Filter" text input. The logs will be updated to show only the lines that match the search term.
 
 ## Requirements
 
@@ -53,8 +55,3 @@ Docker Log Watcher is released under the MIT License. See the [LICENSE](LICENSE)
 If you find this project useful, consider buying me a coffee! Donations help keep this project going and are greatly appreciated.
 
 [![Buy me a coffee](https://img.shields.io/badge/-Buy%20me%20a%20coffee-orange?logo=buy-me-a-coffee&logoColor=white&style=for-the-badge)](https://www.buymeacoffee.com/pedro_cf)
-
-
-
-
-

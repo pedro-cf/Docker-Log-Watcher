@@ -3,38 +3,7 @@
 
 <head>
     <title>Docker Container Logs</title>
-    <style>
-        body {
-            font-family: Consolas;
-            color: #CCCCCC;
-            background: #000000;
-            border: 3px double #CCCCCC;
-            padding: 10px;
-            font-size: 15px;
-        }
-
-        select,
-        #filter {
-            background: #000000;
-            font-family: Consolas;
-            color: #CCCCCC;
-            border: 3px double #CCCCCC;
-            font-size: 15px;
-        }
-
-        pre {
-            overflow: auto;
-            display: flex;
-            flex-direction: column-reverse;
-            padding-bottom: 5px;
-            height: 600px;
-        }
-
-        h2 {
-            display: inline-block;
-            margin-right: 10px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -53,7 +22,6 @@
             <input type="text" id="filter" name="filter">
         </h2>
     </form>
-    <br>
     <pre id="logs"></pre>
     <script>
         function refreshLogs() {
