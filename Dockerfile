@@ -2,4 +2,4 @@ FROM python:3.9-slim-buster
 RUN pip install flask docker
 COPY . /
 EXPOSE 5000
-CMD [ "python", "/app.py" ]
+ENTRYPOINT [ "python", "/app.py" ]

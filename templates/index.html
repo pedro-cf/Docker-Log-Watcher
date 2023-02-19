@@ -10,15 +10,16 @@
             background: #000000;
             border: 3px double #CCCCCC;
             padding: 10px;
-            font-size: 150%;
+            font-size: 15px;
         }
 
-        select {
+        select,
+        #filter {
             background: #000000;
             font-family: Consolas;
             color: #CCCCCC;
             border: 3px double #CCCCCC;
-            font-size: 100%;
+            font-size: 15px;
         }
 
         pre {
@@ -28,11 +29,16 @@
             padding-bottom: 5px;
             height: 600px;
         }
+
+        h2 {
+            display: inline-block;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return false;">
         <h2 for="container_name">
             Container:
             <select name="container_name" id="container_name">
@@ -42,14 +48,19 @@
                 {% endfor %}
             </select>
         </h2>
+        <h2 for="filter">
+            Filter:
+            <input type="text" id="filter" name="filter">
+        </h2>
     </form>
     <br>
     <pre id="logs"></pre>
     <script>
         function refreshLogs() {
             const containerName = document.getElementById('container_name').value;
+            const filter = document.getElementById('filter').value;
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', '/logs?container_name=' + containerName);
+            xhr.open('GET', '/logs?container_name=' + containerName + '&filter=' + filter);
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     document.getElementById('logs').textContent = xhr.response;
