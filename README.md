@@ -37,9 +37,11 @@ This command starts a Docker container that listens on port 5000 and mounts the 
 
 Open a web browser and navigate to `http://localhost:5000/`. You will see a web page with a drop-down list of the containers running on your machine. Select a container to view its logs.
 
-The logs are displayed in a scrolling text area, with the most recent logs at the top. The logs are refreshed every second to show the latest changes.
+The logs are displayed in a scrolling text area, with the most recent logs at the bottom. The logs are refreshed every second to show the latest changes.
 
-You can also filter the logs by text by entering a search term in the "Filter" text input. The logs will be updated to show only the lines that match the search term.
+You filter the logs by text by entering a search term in the "Filter" text input. The logs will be updated to show only the lines that match the search term.
+
+You can export logs to text by pressing the "Export Logs" button.
 
 ## Requirements
 
