@@ -2,6 +2,9 @@
 
 Docker Log Watcher is a simple web application that allows you to view the logs of your Docker containers in a web page. It provides a read-only view of your logs, which can be shared with other people without granting them access to your Docker environment.
 
+![image](https://user-images.githubusercontent.com/4175430/220098454-7a307bae-551d-4250-8ddf-68b0b0e50dc0.png)
+
+
 ## Usage
 
 To use Docker Log Watcher, you need to build and run the Docker image provided in this repository. Here are the steps to follow:
